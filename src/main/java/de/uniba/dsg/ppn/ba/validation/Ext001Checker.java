@@ -17,6 +17,7 @@ import de.uniba.dsg.bpmnspector.common.Violation;
 import de.uniba.dsg.bpmnspector.common.xsdvalidation.BpmnXsdValidator;
 import de.uniba.dsg.bpmnspector.common.xsdvalidation.WsdlValidator;
 import de.uniba.dsg.bpmnspector.common.xsdvalidation.XmlValidator;
+import de.uniba.dsg.ppn.ba.helper.BpmnValidationException;
 import de.uniba.dsg.ppn.ba.helper.ConstantHelper;
 import de.uniba.dsg.ppn.ba.helper.ImportedFilesCrawler;
 import de.uniba.dsg.ppn.ba.helper.PrintHelper;
@@ -74,10 +75,11 @@ public class Ext001Checker {
                 checkConstraintsinFile(importedFile, headFile, folder,
                         validationResult);
             }
-        } catch (SAXParseException e) {
-            createAndLogWellFormednesViolation(e, headFile, validationResult);
         } catch (SAXException | IOException e) {
             PrintHelper.printFileNotFoundLogs(LOGGER, e, headFile.getName());
+            PrintHelper.printLogstatements(LOGGER, e, headFile.getName());
+        } catch (ValidatorException e) {
+            LOGGER.error("Checking of EXT.001 failed: ", e);
         }
     }
 
@@ -89,7 +91,7 @@ public class Ext001Checker {
      */
     private void checkConstraintsinFile(ImportedFile importedFile,
             File headFile, File folder, ValidationResult validationResult)
-                    throws IOException, SAXException {
+                    throws IOException, SAXException, BpmnValidationException {
         File file = importedFile.getFile();
         if (!file.exists()) { // NOPMD
             String xpathLocation = createImportString(file.getName());
