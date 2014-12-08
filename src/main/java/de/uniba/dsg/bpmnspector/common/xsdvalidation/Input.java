@@ -6,11 +6,10 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * Customized LSInput in order to provide access to an resolved resource.
@@ -36,7 +35,7 @@ public class Input implements LSInput {
     private static final Logger LOGGER;
 
     static {
-        LOGGER = (Logger) LoggerFactory.getLogger(Input.class.getSimpleName());
+        LOGGER = LoggerFactory.getLogger(Input.class.getSimpleName());
     }
 
     /**

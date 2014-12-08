@@ -6,9 +6,9 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import de.uniba.dsg.bpmnspector.common.ValidationResult;
 
 /**
@@ -24,8 +24,7 @@ public class XmlWriter {
     private static final Logger LOGGER;
 
     static {
-        LOGGER = (Logger) LoggerFactory.getLogger(XmlWriter.class
-                .getSimpleName());
+        LOGGER = LoggerFactory.getLogger(XmlWriter.class.getSimpleName());
     }
 
     {

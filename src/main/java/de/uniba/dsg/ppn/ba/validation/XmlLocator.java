@@ -14,9 +14,9 @@ import org.jdom2.located.LocatedElement;
 import org.jdom2.located.LocatedJDOMFactory;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import de.uniba.dsg.ppn.ba.helper.ConstantHelper;
 
 /**
@@ -34,8 +34,7 @@ public class XmlLocator {
     private static final Logger LOGGER;
 
     static {
-        LOGGER = (Logger) LoggerFactory.getLogger(XmlLocator.class
-                .getSimpleName());
+        LOGGER = LoggerFactory.getLogger(XmlLocator.class.getSimpleName());
     }
 
     public XmlLocator() {

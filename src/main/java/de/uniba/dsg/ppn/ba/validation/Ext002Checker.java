@@ -10,12 +10,13 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
-import ch.qos.logback.classic.Logger;
 import de.uniba.dsg.bpmnspector.common.ValidationResult;
 import de.uniba.dsg.bpmnspector.common.Violation;
 import de.uniba.dsg.ppn.ba.helper.BpmnHelper;
@@ -23,7 +24,6 @@ import de.uniba.dsg.ppn.ba.helper.ImportedFilesCrawler;
 import de.uniba.dsg.ppn.ba.helper.PrintHelper;
 import de.uniba.dsg.ppn.ba.helper.SetupHelper;
 import de.uniba.dsg.ppn.ba.preprocessing.ImportedFile;
-import org.xml.sax.SAXParseException;
 
 public class Ext002Checker {
 
@@ -34,8 +34,7 @@ public class Ext002Checker {
     private static final String CONSTRAINTNUMBER = "EXT.002";
 
     static {
-        LOGGER = (Logger) LoggerFactory.getLogger(Ext002Checker.class
-                .getSimpleName());
+        LOGGER = LoggerFactory.getLogger(Ext002Checker.class.getSimpleName());
     }
 
     {
@@ -123,9 +122,8 @@ public class Ext002Checker {
             }
         } catch (SAXParseException e) {
             validationResult.getViolations().add(
-                    new Violation("XSD-Check", file.getName(),
-                            e.getLineNumber(), "",
-                            e.getMessage()));
+                    new Violation("XSD-Check", file.getName(), e
+                            .getLineNumber(), "", e.getMessage()));
             validationResult.getCheckedFiles().add(file.getName());
             LOGGER.info("XML not well-formed in {} at line {}", file.getName(),
                     e.getLineNumber());

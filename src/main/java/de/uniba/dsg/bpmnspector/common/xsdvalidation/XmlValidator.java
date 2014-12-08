@@ -12,11 +12,11 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-import ch.qos.logback.classic.Logger;
 import de.uniba.dsg.bpmnspector.common.ValidationResult;
 import de.uniba.dsg.bpmnspector.common.Violation;
 
@@ -33,8 +33,7 @@ public class XmlValidator extends XsdValidator {
     private static final Logger LOGGER;
 
     static {
-        LOGGER = (Logger) LoggerFactory.getLogger(XmlValidator.class
-                .getSimpleName());
+        LOGGER = LoggerFactory.getLogger(XmlValidator.class.getSimpleName());
     }
 
     {
