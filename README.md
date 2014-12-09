@@ -157,7 +157,7 @@ The repository is structured in the following way:
 
 Philipp Neugebauer
 
-Supervisor: [Matthias Geiger](@matthiasgeiger)
+Supervisor: [Matthias Geiger](https://github.com/matthiasgeiger)
 
 # Developing Helpers
 
