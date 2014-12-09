@@ -23,6 +23,13 @@ import de.uniba.dsg.ppn.ba.helper.PrintHelper;
 import de.uniba.dsg.ppn.ba.helper.SetupHelper;
 import de.uniba.dsg.ppn.ba.preprocessing.ImportedFile;
 
+/**
+ * This class is resposible for the check of the EXT.001 constraint
+ *
+ * @author Philipp Neugebauer
+ * @version 1.0
+ *
+ */
 public class Ext001Checker {
 
     private WsdlValidator wsdlValidator;
@@ -74,9 +81,15 @@ public class Ext001Checker {
         }
     }
 
+    /**
+     * checks the rules depending on the type of the file. If it's a bpmn file
+     * it checks the EXT.001 constraint, for WSDL and XML if they are
+     * well-formed. Furthermore, it checks that the file exists.
+     *
+     */
     private void checkConstraintsinFile(ImportedFile importedFile,
             File headFile, File folder, ValidationResult validationResult)
-            throws IOException, SAXException {
+                    throws IOException, SAXException {
         File file = importedFile.getFile();
         if (!file.exists()) { // NOPMD
             String xpathLocation = createImportString(file.getName());
@@ -114,17 +127,36 @@ public class Ext001Checker {
         }
     }
 
+    /**
+     * creates the bpmn import string with the location of the given file in the
+     * bpmn namespace
+     *
+     * @param fileName
+     *            the name of the file
+     * @return bpmn import string
+     */
     private String createImportString(String fileName) {
         return String.format("//bpmn:import[@location = '%s']", fileName);
     }
 
-    private void createAndLogWellFormednesViolation(SAXParseException e,
-            File affectedFile, ValidationResult validationResult) {
+    /**
+     * handles wellformedness violations in the checked files
+     *
+     * @param saxException
+     *            the saxparse exception to handle
+     * @param affectedFile
+     *            the affected file
+     * @param validationResult
+     *            the validation result for adding the violation
+     */
+    private void createAndLogWellFormednesViolation(
+            SAXParseException saxException, File affectedFile,
+            ValidationResult validationResult) {
         validationResult.getViolations().add(
-                new Violation("XSD-Check", affectedFile.getName(), e
-                        .getLineNumber(), "", e.getMessage()));
+                new Violation("XSD-Check", affectedFile.getName(), saxException
+                        .getLineNumber(), "", saxException.getMessage()));
         validationResult.getCheckedFiles().add(affectedFile.getName());
         LOGGER.info("XML not well-formed in {} at line {}",
-                affectedFile.getName(), e.getLineNumber());
+                affectedFile.getName(), saxException.getLineNumber());
     }
 }
