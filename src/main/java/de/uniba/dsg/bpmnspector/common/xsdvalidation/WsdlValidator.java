@@ -28,7 +28,7 @@ import de.uniba.dsg.ppn.ba.helper.BpmnValidationException;
  * @version 1.0
  *
  */
-public class WsdlValidator extends XsdValidator {
+public class WsdlValidator extends AbstractXsdValidator {
     private Schema schema;
     private static final Logger LOGGER;
 

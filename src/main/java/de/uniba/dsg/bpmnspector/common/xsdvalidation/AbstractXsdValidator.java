@@ -18,7 +18,7 @@ import de.uniba.dsg.ppn.ba.helper.BpmnValidationException;
  * @version 1.0
  *
  */
-public abstract class XsdValidator {
+public abstract class AbstractXsdValidator {
 
     /**
      * Validates the given xmlFile with the xsd files and writes violations to

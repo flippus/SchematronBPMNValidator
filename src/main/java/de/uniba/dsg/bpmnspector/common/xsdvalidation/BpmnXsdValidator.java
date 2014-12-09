@@ -30,7 +30,7 @@ import de.uniba.dsg.ppn.ba.helper.BpmnValidationException;
  * @version 1.0
  *
  */
-public class BpmnXsdValidator extends XsdValidator {
+public class BpmnXsdValidator extends AbstractXsdValidator {
 
     private Schema schema;
     private static final Logger LOGGER;
