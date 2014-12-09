@@ -25,6 +25,13 @@ import de.uniba.dsg.ppn.ba.helper.PrintHelper;
 import de.uniba.dsg.ppn.ba.helper.SetupHelper;
 import de.uniba.dsg.ppn.ba.preprocessing.ImportedFile;
 
+/**
+ * This class is resposible for the check of the EXT.002 constraint
+ *
+ * @author Philipp Neugebauer
+ * @version 1.0
+ *
+ */
 public class Ext002Checker {
 
     private final DocumentBuilder documentBuilder;
