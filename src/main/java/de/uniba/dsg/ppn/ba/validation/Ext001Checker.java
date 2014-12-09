@@ -77,7 +77,7 @@ public class Ext001Checker {
         } catch (SAXParseException e) {
             createAndLogWellFormednesViolation(e, headFile, validationResult);
         } catch (SAXException | IOException e) {
-            PrintHelper.printLogstatements(LOGGER, e, headFile.getName());
+            PrintHelper.printFileNotFoundLogs(LOGGER, e, headFile.getName());
         }
     }
 
