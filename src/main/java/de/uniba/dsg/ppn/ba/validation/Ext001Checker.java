@@ -77,8 +77,7 @@ public class Ext001Checker {
             }
         } catch (SAXException | IOException e) {
             PrintHelper.printFileNotFoundLogs(LOGGER, e, headFile.getName());
-            PrintHelper.printLogstatements(LOGGER, e, headFile.getName());
-        } catch (ValidatorException e) {
+        } catch (BpmnValidationException e) {
             LOGGER.error("Checking of EXT.001 failed: ", e);
         }
     }
@@ -91,7 +90,7 @@ public class Ext001Checker {
      */
     private void checkConstraintsinFile(ImportedFile importedFile,
             File headFile, File folder, ValidationResult validationResult)
-                    throws IOException, SAXException, BpmnValidationException {
+            throws IOException, SAXException, BpmnValidationException {
         File file = importedFile.getFile();
         if (!file.exists()) { // NOPMD
             String xpathLocation = createImportString(file.getName());

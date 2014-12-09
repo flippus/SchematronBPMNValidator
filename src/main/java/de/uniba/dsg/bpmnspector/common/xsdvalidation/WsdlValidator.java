@@ -12,7 +12,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import de.uniba.dsg.bpmnspector.refcheck.ValidatorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
@@ -20,6 +19,7 @@ import org.xml.sax.SAXParseException;
 
 import de.uniba.dsg.bpmnspector.common.ValidationResult;
 import de.uniba.dsg.bpmnspector.common.Violation;
+import de.uniba.dsg.ppn.ba.helper.BpmnValidationException;
 
 /**
  * validator for the schema validation of wsdl files
@@ -49,8 +49,8 @@ public class WsdlValidator extends XsdValidator {
 
     @Override
     public void validateAgainstXsd(File xmlFile,
-            ValidationResult validationResult)
-            throws IOException, SAXException, ValidatorException {
+            ValidationResult validationResult) throws IOException,
+            SAXException, BpmnValidationException {
         LOGGER.debug("xml xsd validation started: {}", xmlFile.getName());
         List<SAXParseException> xsdErrorList = new ArrayList<>();
         Validator validator = schema.newValidator();
@@ -67,16 +67,18 @@ public class WsdlValidator extends XsdValidator {
                         xmlFile.getName(), saxParseException.getLineNumber());
             }
         } catch (SAXParseException e) {
-            // if process is not well-formed exception is not processed via the error handler
+            // if process is not well-formed exception is not processed via the
+            // error handler
             validationResult.getViolations().add(
-                    new Violation("XSD-Check", xmlFile.getName(),
-                            e.getLineNumber(), "",
-                            e.getMessage()));
+                    new Violation("XSD-Check", xmlFile.getName(), e
+                            .getLineNumber(), "", e.getMessage()));
             validationResult.setValid(false);
-            String msg = String.format("File %s is not well-formed at line %d: %s", xmlFile.getName(),
-                    e.getLineNumber(), e.getMessage());
+            String msg = String.format(
+                    "File %s is not well-formed at line %d: %s",
+                    xmlFile.getName(), e.getLineNumber(), e.getMessage());
             LOGGER.info(msg);
-            throw new ValidatorException("Cancel Validation as checked File is not well-formed.");
+            throw new BpmnValidationException(
+                    "Cancel Validation as checked File is not well-formed.");
         }
     }
 }

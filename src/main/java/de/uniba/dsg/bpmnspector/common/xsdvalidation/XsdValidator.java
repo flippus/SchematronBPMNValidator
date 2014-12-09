@@ -6,10 +6,10 @@ import java.io.IOException;
 
 import javax.xml.transform.stream.StreamSource;
 
-import de.uniba.dsg.bpmnspector.refcheck.ValidatorException;
 import org.xml.sax.SAXException;
 
 import de.uniba.dsg.bpmnspector.common.ValidationResult;
+import de.uniba.dsg.ppn.ba.helper.BpmnValidationException;
 
 /**
  * Super class for all validators to avoid code redundance
@@ -34,8 +34,8 @@ public abstract class XsdValidator {
      *             when validation process fails somehow
      */
     public abstract void validateAgainstXsd(File xmlFile,
-            ValidationResult validationResult) throws IOException, SAXException,
-            ValidatorException;
+            ValidationResult validationResult) throws IOException,
+            SAXException, BpmnValidationException;
 
     /**
      *
