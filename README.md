@@ -119,8 +119,11 @@ The repository is structured in the following way:
 	|- src
 	|-- main
 	|--- java: contains all java classes
+	|---- de.uniba.dsg.bpmnspector.common: contains the result classes of the validation
+	|----- xsdvalidation: contains the xsd validator classes for the specific file types
 	|---- de.uniba.dsg.ppn.ba: contains the main class for API usage
 	|----- api: contains the factory class
+	|----- helper: contains all the helper classes required for both preprocessing and validation step
 	|----- preprocessing: contains the classes performing the preprocessing step
 	|----- validation: contains the classes performing the validation steps
 	|--- resources: contains all schema validation files
@@ -130,7 +133,32 @@ The repository is structured in the following way:
 
 # Licensing
 
+GPL
+
+```
+
+    Copyright (C) 2014  Philipp Neugebauer
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+```
+
 # Authors
+
+Philipp Neugebauer
+
+Supervisor: @matthiasgeiger
 
 # Developing Helpers
 
@@ -165,5 +193,7 @@ public class TestMain {
 ```
 
 
-# Contribute
+# Further Development
+
+This program is merged in the BPMN Validator of [DSG](https://github.com/uniba-dsg) and will be further developed in their repository.
 
