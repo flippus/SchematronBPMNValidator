@@ -10,7 +10,7 @@ Namely, the following constraints of Geiger identified by their ids can be check
 
 # Requirements and Installation
 
-First, at least Java 7 is required to use the program.
+First, at least Java 8 is required to use the program.
 
 Next, `JAVA_HOME` must be set, included into your `PATH` and point to your JAVA installation for the console usage.
 
