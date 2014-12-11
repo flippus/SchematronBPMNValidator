@@ -4,13 +4,13 @@ machine:
     
 dependencies:
   override:
-    - gradlew dependencies    
+    - ./gradlew dependencies    
     
 test:
   override: 
-    - gradlew jacocoTestReport
+    - ./gradlew jacocoTestReport
   post:
-    - gradlew check
+    - ./gradlew check
     
 general:
   artifacts:
