@@ -4,4 +4,4 @@ machine:
     
 general:
   artifacts:
-    - "reports/"
+    - "build/reports/"
