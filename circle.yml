@@ -2,6 +2,10 @@ machine:
   java:
     version: oraclejdk8
     
+test:
+  post:
+    - gradle check
+    
 general:
   artifacts:
     - "build/reports/"
