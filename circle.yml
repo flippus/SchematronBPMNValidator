@@ -3,8 +3,10 @@ machine:
     version: oraclejdk8
     
 test:
+  override: 
+    - gradlew jacocoTestReport
   post:
-    - gradle check
+    - gradlew check
     
 general:
   artifacts:
