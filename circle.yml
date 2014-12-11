@@ -2,6 +2,6 @@ machine:
   java:
     version: oraclejdk8
     
-test:
-  post:
-    cp -r build/reports $CIRCLE_ARTIFACTS/
+general:
+  artifacts:
+    - "reports/"
