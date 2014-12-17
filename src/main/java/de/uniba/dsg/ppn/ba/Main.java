@@ -40,6 +40,7 @@ public class Main {
 
     private final static Logger LOGGER;
     private final static Level DEBUGLEVEL;
+    private final static String LICENSE = "SchematronBPMNValidator  Copyright (C) 2014  Philipp Neugebauer\n This program comes with ABSOLUTELY NO WARRANTY; This is free software, and you are welcome to redistribute it under certain conditions; See LGPLv3.";
 
     static {
         DEBUGLEVEL = Level.DEBUG;
@@ -47,6 +48,7 @@ public class Main {
     }
 
     public static void main(String... args) {
+        System.out.println(LICENSE);
         SchematronBPMNValidator validator = new SchematronBPMNValidator();
         ArrayList<String> argsAsList = new ArrayList<>(Arrays.asList(args));
         XmlWriter xmlWriter = new XmlWriter();
