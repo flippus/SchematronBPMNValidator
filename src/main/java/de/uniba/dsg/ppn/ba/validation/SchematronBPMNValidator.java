@@ -93,7 +93,6 @@ public class SchematronBPMNValidator implements BpmnValidator {
 
     @Override
     public void setLogLevel(Level logLevel) {
-        // FIXME: without phloc libraries
         ((Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME))
         .setLevel(logLevel);
     }
@@ -250,7 +249,6 @@ public class SchematronBPMNValidator implements BpmnValidator {
      * @throws BpmnValidationException
      *             if no element can be found
      */
-    // TODO: extract in own object?
     private String[] searchForViolationFile(String xpathExpression,
             ValidationResult validationResult,
             Map<String, String> namespaceTable) throws BpmnValidationException {
