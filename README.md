@@ -157,7 +157,7 @@ along with this program; if not, write to the Free Software Foundation, Inc.,
 
 # Authors
 
-Philipp Neugebauer
+[Philipp Neugebauer](https://github.com/philippneugebauer)
 
 Supervisor: [Matthias Geiger](https://github.com/matthiasgeiger)
 
@@ -196,5 +196,4 @@ public class TestMain {
 
 # Further Development
 
-This program is merged in the BPMN Validator of [DSG](https://github.com/uniba-dsg) and will be further developed in their repository.
-
+This program is merged in the [BPMNspector](https://github.com/uniba-dsg/BPMNspector) and will be further developed in this repository.
