@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/philippneugebauer/SchematronBPMNValidator.svg)](https://travis-ci.org/philippneugebauer/SchematronBPMNValidator)
+
 # What is it? || Description
 
 This tool validates BPMN models against the offically provided XSDs of the OMG and 
