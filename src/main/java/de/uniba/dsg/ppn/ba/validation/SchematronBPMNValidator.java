@@ -94,7 +94,7 @@ public class SchematronBPMNValidator implements BpmnValidator {
     @Override
     public void setLogLevel(Level logLevel) {
         ((Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME))
-        .setLevel(logLevel);
+                .setLevel(logLevel);
     }
 
     @Override
@@ -132,12 +132,13 @@ public class SchematronBPMNValidator implements BpmnValidator {
                     validationResult);
 
             PreProcessResult preProcessResult = preProcessor.preProcess(
-                    headFileDocument, parentFolder, new HashMap<>());
+                    headFileDocument, parentFolder,
+                    new HashMap<String, String>());
 
             SchematronOutputType schematronOutputType = schematronSchema
                     .applySchematronValidationToSVRL(new StreamSource(
                             DocumentTransformer
-                                    .transformToInputStream(headFileDocument)));
+                            .transformToInputStream(headFileDocument)));
             for (int i = 0; i < schematronOutputType
                     .getActivePatternAndFiredRuleAndFailedAssertCount(); i++) {
                 if (schematronOutputType
@@ -147,7 +148,7 @@ public class SchematronBPMNValidator implements BpmnValidator {
                             validationResult,
                             preProcessResult,
                             (FailedAssert) schematronOutputType
-                                    .getActivePatternAndFiredRuleAndFailedAssertAtIndex(i));
+                            .getActivePatternAndFiredRuleAndFailedAssertAtIndex(i));
                 }
             }
 
