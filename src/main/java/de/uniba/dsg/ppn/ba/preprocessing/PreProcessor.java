@@ -45,8 +45,8 @@ import de.uniba.dsg.ppn.ba.helper.ImportedFilesCrawler;
 import de.uniba.dsg.ppn.ba.helper.SetupHelper;
 
 /**
- * Does the preprocessing step for creating only one document contenting
- * everything and a namespace table
+ * Does the preprocessing step for creating only one document containing
+ * everything, including a namespace table
  *
  * @author Philipp Neugebauer
  * @version 1.0
