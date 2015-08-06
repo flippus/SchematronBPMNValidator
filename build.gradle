@@ -67,6 +67,15 @@ jacoco {
     toolVersion = "0.7.1.201405082137"
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport
+
 jar.archiveName = "bpmnvalidator.jar"
 
 jar {
