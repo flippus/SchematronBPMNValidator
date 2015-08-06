@@ -5,6 +5,7 @@ apply plugin: "application"
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
 
 mainClassName = "de.uniba.dsg.ppn.ba.Main"
 
@@ -32,6 +33,8 @@ dependencies {
     internal 'ch.qos.logback:logback-classic:1.1.2'
     internal 'org.slf4j:slf4j-api:1.7.7'
     internal 'com.phloc:phloc-commons:4.3.5'
+    
+    classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
     
     pmd(  
         'net.sourceforge.pmd:pmd-core:5.2.1',  
