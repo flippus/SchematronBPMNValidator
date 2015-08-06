@@ -5,7 +5,6 @@ apply plugin: "application"
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
-apply plugin: 'com.github.kt3k.coveralls'
 
 mainClassName = "de.uniba.dsg.ppn.ba.Main"
 
@@ -91,3 +90,16 @@ run {
         args project.args.split('\\s+')
     }
 }
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
+    }
+}
+
+apply plugin: 'com.github.kt3k.coveralls'
