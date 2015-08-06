@@ -10,7 +10,7 @@ apply plugin: 'com.github.kt3k.coveralls'
 mainClassName = "de.uniba.dsg.ppn.ba.Main"
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2'
+    gradleVersion = '2.5'
 }
 
 repositories {
