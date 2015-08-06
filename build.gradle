@@ -33,8 +33,6 @@ dependencies {
     internal 'org.slf4j:slf4j-api:1.7.7'
     internal 'com.phloc:phloc-commons:4.3.5'
     
-    classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
-    
     pmd(  
         'net.sourceforge.pmd:pmd-core:5.2.1',  
         'net.sourceforge.pmd:pmd-java:5.2.1'  
