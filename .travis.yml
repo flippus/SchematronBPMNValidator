@@ -4,6 +4,5 @@ jdk:
   - oraclejdk7
 before_install:
   - chmod +x gradlew
-  - pip install codecov
 after_success:
-  codecov
+  - bash <(curl -s https://codecov.io/bash)
