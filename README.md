@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/philippneugebauer/SchematronBPMNValidator.svg)](https://travis-ci.org/philippneugebauer/SchematronBPMNValidator) [![codecov.io](http://codecov.io/github/philippneugebauer/SchematronBPMNValidator/coverage.svg?branch=master)](http://codecov.io/github/philippneugebauer/SchematronBPMNValidator?branch=master)
+[![Coverage Status](https://coveralls.io/repos/philippneugebauer/SchematronBPMNValidator/badge.svg?branch=master&service=github)](https://coveralls.io/github/philippneugebauer/SchematronBPMNValidator?branch=master)
 
 # What is it? || Description
 
